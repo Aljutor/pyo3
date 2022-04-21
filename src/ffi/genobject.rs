@@ -1,17 +1,11 @@
 use crate::ffi::object::*;
-use crate::ffi::pyport::Py_ssize_t;
 use crate::ffi::PyFrameObject;
 use std::os::raw::c_int;
 
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct PyGenObject {
-    #[cfg(py_sys_config = "Py_TRACE_REFS")]
-    pub _ob_next: *mut PyObject,
-    #[cfg(py_sys_config = "Py_TRACE_REFS")]
-    pub _ob_prev: *mut PyObject,
-    pub ob_refcnt: Py_ssize_t,
-    pub ob_type: *mut PyTypeObject,
+    pub ob_base: PyObject,
     pub gi_frame: *mut PyFrameObject,
     pub gi_running: c_int,
     pub gi_code: *mut PyObject,
