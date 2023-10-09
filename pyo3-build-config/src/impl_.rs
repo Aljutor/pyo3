@@ -225,8 +225,8 @@ FRAMEWORK = bool(get_config_var("PYTHONFRAMEWORK"))
 SHARED = bool(get_config_var("Py_ENABLE_SHARED"))
 
 implementation = platform.python_implementation()
-if sys.implementation.name == "nogil":
-    implementation = "NoGIL"
+// if sys.implementation.name == "nogil":
+implementation = "NoGIL"
 
 print("implementation", implementation)
 print("version_major", sys.version_info[0])
